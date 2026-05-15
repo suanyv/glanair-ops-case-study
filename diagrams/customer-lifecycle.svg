@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 200" width="720" height="200" font-family="'SF Mono', 'Fira Code', monospace">
+  <rect width="720" height="200" fill="#fafafa"/>
+  
+  <text x="36" y="30" font-size="13" font-weight="600" fill="#111" letter-spacing="0.5">CUSTOMER LIFECYCLE</text>
+  <text x="36" y="46" font-size="10" fill="#888" letter-spacing="0.3">GlanAir Home Solutions — Buyer Journey</text>
+  <line x1="36" y1="55" x2="684" y2="55" stroke="#e0e0e0" stroke-width="1"/>
+
+  <!-- Stage 1 -->
+  <rect x="36" y="80" width="100" height="60" rx="4" fill="#fff" stroke="#333" stroke-width="1.5"/>
+  <text x="86" y="107" text-anchor="middle" font-size="10" font-weight="600" fill="#333">ENQUIRY</text>
+  <text x="86" y="121" text-anchor="middle" font-size="9" fill="#666">Inbound message</text>
+  <text x="86" y="133" text-anchor="middle" font-size="9" fill="#666">Contact created</text>
+
+  <line x1="136" y1="110" x2="160" y2="110" stroke="#bbb" stroke-width="1.5"/>
+  <polygon points="158,106 158,114 165,110" fill="#bbb"/>
+
+  <!-- Stage 2 -->
+  <rect x="165" y="80" width="100" height="60" rx="4" fill="#fff" stroke="#333" stroke-width="1.5"/>
+  <text x="215" y="107" text-anchor="middle" font-size="10" font-weight="600" fill="#333">QUALIFICATION</text>
+  <text x="215" y="121" text-anchor="middle" font-size="9" fill="#666">Opportunity open</text>
+  <text x="215" y="133" text-anchor="middle" font-size="9" fill="#666">Needs Analysis</text>
+
+  <line x1="265" y1="110" x2="289" y2="110" stroke="#bbb" stroke-width="1.5"/>
+  <polygon points="287,106 287,114 294,110" fill="#bbb"/>
+
+  <!-- Stage 3 -->
+  <rect x="294" y="80" width="100" height="60" rx="4" fill="#fff" stroke="#333" stroke-width="1.5"/>
+  <text x="344" y="107" text-anchor="middle" font-size="10" font-weight="600" fill="#333">PURCHASE</text>
+  <text x="344" y="121" text-anchor="middle" font-size="9" fill="#666">Collection confirmed</text>
+  <text x="344" y="133" text-anchor="middle" font-size="9" fill="#666">Opp → Closed Won</text>
+
+  <line x1="394" y1="110" x2="418" y2="110" stroke="#bbb" stroke-width="1.5"/>
+  <polygon points="416,106 416,114 423,110" fill="#bbb"/>
+
+  <!-- Stage 4 -->
+  <rect x="423" y="80" width="100" height="60" rx="4" fill="#fff" stroke="#333" stroke-width="1.5"/>
+  <text x="473" y="107" text-anchor="middle" font-size="10" font-weight="600" fill="#333">FOLLOW-UP</text>
+  <text x="473" y="121" text-anchor="middle" font-size="9" fill="#666">Health record created</text>
+  <text x="473" y="133" text-anchor="middle" font-size="9" fill="#666">T+3 day task fires</text>
+
+  <line x1="523" y1="110" x2="547" y2="110" stroke="#bbb" stroke-width="1.5"/>
+  <polygon points="545,106 545,114 552,110" fill="#bbb"/>
+
+  <!-- Stage 5 -->
+  <rect x="552" y="80" width="132" height="60" rx="4" fill="#111"/>
+  <text x="618" y="107" text-anchor="middle" font-size="10" font-weight="600" fill="#fff">HEALTH SCORED</text>
+  <text x="618" y="121" text-anchor="middle" font-size="9" fill="#aaa">Green / Amber / Red</text>
+  <text x="618" y="133" text-anchor="middle" font-size="9" fill="#aaa">CSAT captured</text>
+
+  <!-- Closed Lost branch -->
+  <line x1="265" y1="140" x2="265" y2="165" stroke="#ccc" stroke-width="1.2" stroke-dasharray="4,3"/>
+  <rect x="195" y="160" width="140" height="30" rx="4" fill="#fff" stroke="#ccc" stroke-width="1.2"/>
+  <text x="265" y="175" text-anchor="middle" font-size="9" fill="#999">Closed Lost (no stock) → Demand log</text>
+</svg>

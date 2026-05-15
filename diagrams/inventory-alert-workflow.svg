@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340" width="720" height="340" font-family="'SF Mono', 'Fira Code', monospace">
+  <rect width="720" height="340" fill="#fafafa"/>
+
+  <text x="36" y="30" font-size="13" font-weight="600" fill="#111" letter-spacing="0.5">INVENTORY ALERT WORKFLOW</text>
+  <text x="36" y="46" font-size="10" fill="#888" letter-spacing="0.3">Threshold trigger → demand capture → restock decision</text>
+  <line x1="36" y1="55" x2="684" y2="55" stroke="#e0e0e0" stroke-width="1"/>
+
+  <!-- Inventory update -->
+  <rect x="280" y="75" width="160" height="40" rx="4" fill="#fff" stroke="#333" stroke-width="1.5"/>
+  <text x="360" y="94" text-anchor="middle" font-size="10" font-weight="600" fill="#333">Inventory Log Updated</text>
+  <text x="360" y="107" text-anchor="middle" font-size="9" fill="#666">Units Remaining decreases</text>
+
+  <line x1="360" y1="115" x2="360" y2="140" stroke="#bbb" stroke-width="1.5"/>
+  <polygon points="356,138 364,138 360,145" fill="#bbb"/>
+
+  <!-- Threshold check -->
+  <polygon points="360,145 460,170 360,195 260,170" fill="#fff" stroke="#333" stroke-width="1.5"/>
+  <text x="360" y="167" text-anchor="middle" font-size="10" fill="#333">Units ≤ threshold?</text>
+  <text x="360" y="181" text-anchor="middle" font-size="9" fill="#666">AND alert not yet fired</text>
+
+  <!-- NO — no action -->
+  <line x1="460" y1="170" x2="570" y2="170" stroke="#bbb" stroke-width="1.5"/>
+  <polygon points="568,166 568,174 575,170" fill="#bbb"/>
+  <text x="515" y="163" text-anchor="middle" font-size="9" fill="#666">NO</text>
+  <rect x="575" y="150" width="100" height="40" rx="4" fill="#f0f0f0" stroke="#ccc" stroke-width="1.5"/>
+  <text x="625" y="169" text-anchor="middle" font-size="10" fill="#888">No action</text>
+  <text x="625" y="182" text-anchor="middle" font-size="9" fill="#aaa">Monitor continues</text>
+
+  <!-- YES -->
+  <line x1="360" y1="195" x2="360" y2="220" stroke="#bbb" stroke-width="1.5"/>
+  <polygon points="356,218 364,218 360,225" fill="#bbb"/>
+  <text x="370" y="212" font-size="9" fill="#333">YES</text>
+
+  <!-- Two actions in parallel -->
+  <line x1="300" y1="225" x2="420" y2="225" stroke="#bbb" stroke-width="1.5"/>
+  <line x1="300" y1="225" x2="300" y2="245" stroke="#bbb" stroke-width="1.5"/>
+  <line x1="420" y1="225" x2="420" y2="245" stroke="#bbb" stroke-width="1.5"/>
+  <polygon points="296,243 304,243 300,250" fill="#bbb"/>
+  <polygon points="416,243 424,243 420,250" fill="#bbb"/>
+
+  <!-- Action 1: Set alert flag -->
+  <rect x="200" y="250" width="200" height="40" rx="4" fill="#fff" stroke="#333" stroke-width="1.5"/>
+  <text x="300" y="269" text-anchor="middle" font-size="10" font-weight="500" fill="#333">Set Alert Triggered = true</text>
+  <text x="300" y="282" text-anchor="middle" font-size="9" fill="#666">Prevents duplicate alerts</text>
+
+  <!-- Action 2: Create task -->
+  <rect x="420" y="250" width="200" height="40" rx="4" fill="#111"/>
+  <text x="520" y="269" text-anchor="middle" font-size="10" font-weight="500" fill="#fff">Create Restock Alert Task</text>
+  <text x="520" y="282" text-anchor="middle" font-size="9" fill="#aaa">Priority: High · Due: Today</text>
+
+  <!-- Arrow from task down -->
+  <line x1="520" y1="290" x2="520" y2="305" stroke="#bbb" stroke-width="1.5"/>
+  <polygon points="516,303 524,303 520,310" fill="#bbb"/>
+  <rect x="380" y="310" width="280" height="20" rx="3" fill="#f5f5f5" stroke="#ddd" stroke-width="1"/>
+  <text x="520" y="324" text-anchor="middle" font-size="9" fill="#666">SUBJECT: "RESTOCK ALERT — Units Remaining at or below threshold"</text>
+
+  <!-- Pilot note -->
+  <text x="36" y="305" font-size="9" fill="#aaa">Note: In the GlanAir pilot, this alert would have fired with ~3–5 units remaining,</text>
+  <text x="36" y="318" font-size="9" fill="#aaa">giving operational visibility before the sell-out on 19 March 2026.</text>
+</svg>

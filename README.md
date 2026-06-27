@@ -344,3 +344,14 @@ The skills demonstrated here map directly to a Customer Success Associate role a
 ---
 
 *Built as a portfolio project to demonstrate customer operations systems thinking. All customer data is anonymised or fictionalised. The operational events described reflect a real product pilot; the CRM reconstruction was built subsequently as a learning exercise.*
+## API Troubleshooting Fundamentals
+
+Demonstrating the ability to authenticate, query, and diagnose API failures using Postman against the GlanAir Salesforce org.
+
+- **OAuth 2.0 authentication** (Authorization Code with PKCE) — the same handshake used by Shopify, HubSpot, Stripe, and most B2B SaaS integrations
+- **Full CRUD cycle** — GET, POST, PATCH, DELETE against live case and contact data
+- **Error diagnosis** — deliberately broken requests reproducing 401, 400, and 404 failures with documented root causes and fixes
+- **Rate limit observability** — reading `Sforce-Limit-Info` headers to monitor API quota
+
+Full walkthrough with screenshots: [`api-troubleshooting/api-troubleshooting.md`](api-troubleshooting/api-troubleshooting.md)
+

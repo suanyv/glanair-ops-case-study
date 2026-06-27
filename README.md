@@ -1,6 +1,6 @@
 # GlanAir Home Solutions — Customer Operations System Case Study
 
-> A reconstruction of a real consumer facing operation, reframed through the lens of SaaS customer operations: account management, support workflows, health monitoring, SLA enforcement, and scalable lifecycle tracking.
+> A reconstruction of a real consumer-facing operation, reframed through the lens of SaaS customer operations: account management, support workflows, health monitoring, SLA enforcement, and scalable lifecycle tracking.
 
 ---
 
@@ -22,13 +22,13 @@
 
 ## Executive Summary
 
-GlanAir Home Solutions was a direct to consumer product pilot selling a single SKU, a HEPA dehumidifier, via online marketplace listing in Ireland. Over 32 days in February–March 2026, the operation processed **20 completed transactions**, handled **30+ customer enquiries**, resolved **15+ recurring support requests**, and achieved **5.0/5 customer satisfaction signals** across all documented interactions, under constrained inventory and without any dedicated tooling.
+GlanAir Home Solutions was a direct-to-consumer product pilot selling a single SKU — a HEPA dehumidifier — via online marketplace listing in Ireland. Over 32 days in February–March 2026, the operation processed **20 completed transactions**, handled **30+ customer enquiries**, resolved **15+ recurring support requests**, and achieved **5.0/5 customer satisfaction signals** across all documented interactions, under constrained inventory and without any dedicated tooling.
 
-Every customer interaction was managed manually: inbound messages triaged by eye, responses drafted from memory, purchase coordination handled over WhatsApp, and satisfaction signals collected informally. The operation worked, but only because volume stayed low.
+Every customer interaction was managed manually: inbound messages triaged by eye, responses drafted from memory, purchase coordination handled over WhatsApp, and satisfaction signals collected informally. The operation worked — but only because volume stayed low.
 
-This project reconstructs that operation as a structured customer operations system. The goal is not to document a CRM implementation. It is to demonstrate how the operational problems that emerged at small scale map directly to the challenges that arise in high volume SaaS customer success environments, and how structured systems, automated workflows, and observability infrastructure address them.
+This project reconstructs that operation as a structured customer operations system. The goal is not to document a CRM implementation. It is to demonstrate how the operational problems that emerged at small scale map directly to the challenges that arise in high-volume SaaS customer success environments — and how structured systems, automated workflows, and observability infrastructure address them.
 
-The reconstructed system includes: centralised account and contact management, opportunity tracking, a support case queue with SLA monitoring, customer health records, a FAQ knowledge base, inventory alert automation, and an AI assisted support routing agent. Screenshots of the live system are included throughout.
+The reconstructed system includes: centralised account and contact management, opportunity tracking, a support case queue with SLA monitoring, customer health records, a FAQ knowledge base, inventory alert automation, and an AI-assisted support routing agent. Screenshots of the live system are included throughout.
 
 ---
 
@@ -44,7 +44,7 @@ The GlanAir pilot operated through a single marketplace listing on Adverts.ie. I
 
 **Inventory constraints** introduced pressure. Stock was fixed at 20 units. As units sold, the window for new buyers narrowed. When stock hit zero on 19 March 2026, five qualified buyers were still actively enquiring. There was no mechanism to notify them systematically or track demand overflow for future planning.
 
-**Response time** was a competitive variable. Buyers on marketplace platforms compare multiple listings. Slow responses lose sales. The operation maintained a sub 30-minute response target informally, but that target was never monitored, never enforced, and never visible.
+**Response time** was a competitive variable. Buyers on marketplace platforms compare multiple listings. Slow responses lose sales. The operation maintained a sub-30-minute response target informally — but that target was never monitored, never enforced, and never visible.
 
 ---
 
@@ -52,7 +52,7 @@ The GlanAir pilot operated through a single marketplace listing on Adverts.ie. I
 
 These are not complaints about running a small operation manually. They are operational failure modes that would become serious at higher volume.
 
-**Fragmented customer state.** Each buyer existed as an isolated message thread. There was no unified view of a customer's enquiry history, purchase status, and post sale follow up in one place. A buyer who asked three questions across three days required mental recall to serve consistently.
+**Fragmented customer state.** Each buyer existed as an isolated message thread. There was no unified view of a customer's enquiry history, purchase status, and post-sale follow-up in one place. A buyer who asked three questions across three days required mental recall to serve consistently.
 
 **Repetitive support load with no deflection mechanism.** Approximately 15 distinct questions recurred across the buyer pool. "Does it help with allergies?" "Is the filter included?" "Does it come with a warranty?" "Can I collect in the evenings?" These were answered individually, from memory, every time. The absence of a knowledge base meant support cost scaled linearly with volume.
 
@@ -60,7 +60,7 @@ These are not complaints about running a small operation manually. They are oper
 
 **Inventory blind spots.** Stock levels were tracked mentally. When inventory dropped to critical levels, there was no alert, no task generated, no notification to pending buyers. The sell-out event on 19 March was handled reactively.
 
-**No lifecycle health tracking.** Post-sale follow up happened when remembered, not systematically. There was no record of which buyers had been checked in with, which had reported satisfaction, and which had gone silent after collection. Customer health was invisible.
+**No lifecycle health tracking.** Post-sale follow-up happened when remembered, not systematically. There was no record of which buyers had been checked in with, which had reported satisfaction, and which had gone silent after collection. Customer health was invisible.
 
 **Response time had no enforcement layer.** The informal 30-minute target was aspirational. If a message came in during a busy period and sat unanswered for two hours, there was no alert, no escalation, no record of the breach.
 
@@ -83,13 +83,13 @@ Inventory Log (custom object)
 FAQ Knowledge Records (15 records)
 ```
 
-**Accounts** represent the organisational entity in this case, GlanAir Home Solutions itself as the vendor. In a multi-product or B2B context, each buyer organisation would be a separate account. The account record holds SLA tier, customer priority, and upsell potential.
+**Accounts** represent the organisational entity — in this case, GlanAir Home Solutions itself as the vendor. In a multi-product or B2B context, each buyer organisation would be a separate account. The account record holds SLA tier, customer priority, and upsell potential.
 
 **Contacts** represent individual buyers — 15 records corresponding to buyers who engaged meaningfully. Each contact links to their purchase history, support cases, and health record. This is the unified view that was absent in the original operation.
 
-**Opportunities** track the commercial lifecycle of each enquiry. The 20 Closed Won records correspond to completed sales at €39 each. The 5 Closed Lost records correspond to buyers who were active in the pipeline when stock ran out on 19 March. A Lead to Opportunity automation triggers on new contact creation, advancing inbound enquiries through Needs Analysis before manual qualification.
+**Opportunities** track the commercial lifecycle of each enquiry. The 20 Closed Won records correspond to completed sales at €39 each. The 5 Closed Lost records correspond to buyers who were active in the pipeline when stock ran out on 19 March. A Lead-to-Opportunity automation triggers on new contact creation, advancing inbound enquiries through Needs Analysis before manual qualification.
 
-**Cases** are the primary support record. 30+ cases capture the full range of customer interactions: pre sale product questions, collection coordination, post sale follow up, and stock availability checks. Cases carry subject, status, priority, and SLA due date fields that enable queue management and breach detection.
+**Cases** are the primary support record. 30+ cases capture the full range of customer interactions: pre-sale product questions, collection coordination, post-sale follow-up, and stock availability checks. Cases carry subject, status, priority, and SLA due date fields that enable queue management and breach detection.
 
 **Customer Health Records** are a custom object linking to the contact. Seven records were created — one per buyer who received structured post-sale follow-up. Fields include: satisfaction score, follow-up date, feedback notes, and health status (Green / Amber / Red). A post-sale trigger flow creates the health record automatically when an opportunity closes as Won.
 
@@ -353,5 +353,5 @@ Demonstrating the ability to authenticate, query, and diagnose API failures usin
 - **Error diagnosis** — deliberately broken requests reproducing 401, 400, and 404 failures with documented root causes and fixes
 - **Rate limit observability** — reading `Sforce-Limit-Info` headers to monitor API quota
 
-Full walkthrough with screenshots: [`api-troubleshooting/api-troubleshooting.md`](api-troubleshooting/api-troubleshooting.md)
+Full walkthrough with screenshots: [`https://github.com/suanyv/api-troubleshooting-fundamentals`](https://github.com/suanyv/api-troubleshooting-fundamentals)
 
